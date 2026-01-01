@@ -1,374 +1,46 @@
+/* ===============================
+   GLOBAL RESET
+================================ */
 * {
   box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
 }
 
 body {
-  margin: 0;
-  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  background: #f8fafc;
   color: #111827;
 }
 
-/* ===================== LAYOUT ===================== */
+/* ===============================
+   AUTH (LOGIN / REGISTER)
+================================ */
 
-.dashboard {
-  display: grid;
-  grid-template-columns: 220px 1fr 280px;
-  height: 100vh;
-  animation: fadeIn 0.6s ease;
-}
-
-/* ===================== SIDEBAR ===================== */
-
-.sidebar {
-  background: linear-gradient(180deg, #111827, #1f2933);
-  padding: 22px;
-  color: #e5e7eb;
-}
-
-.sidebar h3 {
-  margin: 0 0 4px;
-  font-size: 18px;
-}
-
-.sidebar .muted {
-  color: #9ca3af;
-}
-
-.stats {
-  display: flex;
-  gap: 12px;
-  margin: 24px 0;
-}
-
-.stats div {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.08);
-  padding: 12px;
-  border-radius: 10px;
-  text-align: center;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.stats div:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.stats strong {
-  font-size: 18px;
-  display: block;
-}
-
-.stats span {
-  font-size: 12px;
-  color: #d1d5db;
-}
-
-/* ===================== MAIN ===================== */
-
-.main {
-  padding: 28px;
-  overflow-y: auto;
-  animation: slideUp 0.5s ease;
-}
-
-.main h2 {
-  margin-top: 0;
-  font-size: 22px;
-}
-
-/* INPUT AREA */
-.task-form {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 24px;
-  background: white;
-  padding: 14px;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-.task-form input {
-  flex: 1;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  font-size: 14px;
-}
-
-.task-form input:focus {
-  outline: none;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.25);
-}
-
-.task-form button {
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 12px 16px;
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.task-form button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.4);
-}
-
-/* TASK CARD */
-.task-card {
-  background: white;
-  padding: 14px;
-  margin-bottom: 12px;
-  border-radius: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  animation: fadeIn 0.4s ease;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.task-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-}
-
-/* ACTION BUTTONS */
-.task-actions button {
-  margin-left: 6px;
-  padding: 6px 10px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-size: 12px;
-  transition: transform 0.15s ease;
-}
-
-.task-actions button:hover {
-  transform: scale(1.05);
-}
-
-.task-actions button:first-child {
-  background: #facc15;
-}
-
-.task-actions button:last-child {
-  background: #ef4444;
-  color: white;
-}
-
-/* ===================== SCHEDULE ===================== */
-
-.schedule {
-  background: linear-gradient(180deg, #ffffff, #f9fafb);
-  padding: 22px;
-  border-left: 1px solid #e5e7eb;
-}
-
-.schedule h3 {
-  margin-top: 0;
-}
-
-.schedule-card {
-  padding: 12px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  animation: slideIn 0.4s ease;
-}
-
-.schedule-card strong {
-  display: block;
-}
-
-/* Color accents */
-.yellow { background: #fef3c7; }
-.blue { background: #dbeafe; }
-.pink { background: #fee2e2; }
-
-/* ===================== LOGOUT ===================== */
-
-.logout-btn {
-  margin-top: 30px;
-  width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  background: #ef4444;
-  color: white;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.logout-btn:hover {
-  background: #dc2626;
-}
-
-/* ===================== ANIMATIONS ===================== */
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { transform: translateY(10px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes slideIn {
-  from { transform: translateX(10px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-/* ===================== MOBILE ===================== */
-
-@media (max-width: 900px) {
-  .dashboard {
-    grid-template-columns: 1fr;
-  }
-
-  .sidebar,
-  .schedule {
-    display: none;
-  }
-}
-
-/* ===================== AUTH (LOGIN / REGISTER) ===================== */
-
-.auth-container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-}
-
-.auth-card {
-  width: 100%;
-  max-width: 380px;
-  background: white;
-  padding: 28px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-.auth-card h2 {
-  text-align: center;
-  margin-bottom: 6px;
-}
-
-.auth-subtitle {
-  text-align: center;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-.auth-card form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.auth-card input {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.auth-card button {
-  padding: 10px;
-  background: #4f46e5;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.task-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.task-left input {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-}
-
-.done {
-  text-decoration: line-through;
-  color: #9ca3af;
-}
-/* ===================== COMPLETION ANIMATION ===================== */
-
-.task-card {
-  transition:
-    transform 0.25s ease,
-    opacity 0.25s ease,
-    background-color 0.25s ease;
-}
-
-.completed {
-  animation: completePop 0.35s ease forwards;
-  background-color: #f0fdf4;
-}
-
-.completed span {
-  text-decoration: line-through;
-  color: #6b7280;
-}
-
-/* Checkbox animation */
-.task-left input {
-  transition: transform 0.15s ease;
-}
-
-.task-left input:checked {
-  transform: scale(1.15);
-}
-
-/* Keyframes */
-@keyframes completePop {
-  0% {
-    transform: scale(1);
-  }
-  40% {
-    transform: scale(0.97);
-  }
-  100% {
-    transform: scale(0.98);
-    opacity: 0.75;
-  }
-}
-
-/* Auth Page Layout */
 .auth-page {
-  min-height: 100vh;
+  position: fixed;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 16px;
   background: linear-gradient(135deg, #f8fafc, #eef2ff);
 }
 
-/* Card */
 .auth-card {
-  background: #ffffff;
-  padding: 32px;
   width: 100%;
   max-width: 380px;
+  background: #ffffff;
+  padding: 32px;
   border-radius: 14px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   animation: fadeUp 0.4s ease;
 }
 
 .auth-card h2 {
-  margin-bottom: 6px;
   font-size: 22px;
+  margin-bottom: 6px;
 }
 
 .auth-subtitle {
@@ -377,7 +49,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* Form */
 .auth-form {
   display: flex;
   flex-direction: column;
@@ -386,9 +57,9 @@ body {
 
 .auth-form input {
   padding: 12px;
+  font-size: 14px;
   border-radius: 8px;
   border: 1px solid #e5e7eb;
-  font-size: 14px;
 }
 
 .auth-form input:focus {
@@ -396,9 +67,8 @@ body {
   border-color: #6366f1;
 }
 
-/* Button */
 .auth-btn {
-  margin-top: 10px;
+  margin-top: 8px;
   padding: 12px;
   background: #6366f1;
   color: white;
@@ -414,7 +84,6 @@ body {
   box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
 }
 
-/* Error */
 .auth-error {
   background: #fee2e2;
   color: #b91c1c;
@@ -424,7 +93,6 @@ body {
   margin-bottom: 12px;
 }
 
-/* Footer */
 .auth-footer {
   margin-top: 18px;
   font-size: 13px;
@@ -438,11 +106,161 @@ body {
   font-weight: 500;
 }
 
-/* Animation */
+/* ===============================
+   DASHBOARD LAYOUT
+================================ */
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 220px 1fr 280px;
+  height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  background: #ffffff;
+  padding: 20px;
+  border-right: 1px solid #e5e7eb;
+}
+
+.sidebar h3 {
+  margin-bottom: 6px;
+}
+
+.muted {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.stats {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.stats div {
+  flex: 1;
+  background: #f3f4f6;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* MAIN */
+.main {
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.task-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.task-form input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.task-form button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #6366f1;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* TASK CARD */
+.task-card {
+  background: #ffffff;
+  padding: 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeUp 0.25s ease;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.task-actions button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.edit-btn {
+  background: #e0e7ff;
+}
+
+.delete-btn {
+  background: #fee2e2;
+}
+
+/* RIGHT PANEL */
+.schedule {
+  background: #f9fafb;
+  padding: 20px;
+  border-left: 1px solid #e5e7eb;
+}
+
+.schedule-card {
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background: #e0e7ff;
+}
+
+/* LOGOUT */
+.logout-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background: #ef4444;
+  color: white;
+  cursor: pointer;
+}
+
+/* ===============================
+   MOBILE (CLEAN & SIMPLE)
+================================ */
+
+@media (max-width: 900px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar,
+  .schedule {
+    display: none;
+  }
+
+  .main {
+    padding: 16px;
+  }
+}
+
+/* ===============================
+   ANIMATION
+================================ */
+
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
